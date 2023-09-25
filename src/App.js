@@ -1,5 +1,13 @@
+import Header from './components/Header';
+import Footer from './components/Footer';
+
 function App() {
-	return <h1>Hello</h1>;
+	return (
+		<>
+			<Header />
+			<Footer />
+		</>
+	);
 }
 
 export default App;
@@ -28,6 +36,15 @@ Virtual DOM ( 가상돔 )
 
 JSX
 - 리액트에 DOM을 효율적으로 생성하기 위한 HTML의 규칙성을 따라한 자바스크립트 돔 제작 방식
+
+
+컴컴포넌트 생성시 주의섬
+- 무조건 JSX를 리턴
+- 컴포넌트 함수 이름은 대문자로 지정
+- export로 내보내야지 다른 컴포넌트에서 불러올수 있음
+- 하나의 컴포넌트 함수는 단인 JSX를 리턴 가능
+- 복수개의 JSX를 리턴하고 싶을때는 wrapping El로 묶어서 그룹화한뒤 리턴
+- 중첩된 Element 노드를 생성하지 않고 복수개의 JSX를 리턴하고 싶을떄는 <> </> Fragment로 감싸줌
 
 
 */
