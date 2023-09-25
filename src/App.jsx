@@ -1,28 +1,23 @@
-import Header from './components/Header';
-import Footer from './components/Footer';
 import './style.scss';
-import Popup from './components/Popup';
-import List from './components/List';
+
+import { useState } from 'react';
 
 function App() {
-	let student = {
-		name: 'David',
-		age: 20,
-	};
+	console.log('app');
+	// const [상태값, 상태변경전용함수] = useState(초기값);
+	// 리액트 컴포넌트는 State 값이 State 변경 함수로 변경되야지만  컴포넌트가 재랜더링 됨
+	// 숫자를 증가, 감소 시킬때 전위증감 연산자를 써야지만 해당 렌더링 사이클에서 바로 값이 변경되면서 다음번 렌더링에 반영됨
+	// State에 담기는 값이 바뀔때에만 화면의 갱신이 일어나기 때문에
+	// State에 담기는 데이터만 관리하면 되므로 유지보수가 편함
+	let [Num, setNum] = useState(0);
+	console.log(Num);
 
-	let newStudent = { ...student };
-	newStudent.name = 'Andy';
-	console.log(newStudent);
-	console.log(student);
-
-	let isPop = true;
-	let isFooter = true;
 	return (
 		<>
-			<Header />
-			{isFooter && <Footer />}
-			{isPop ? <Popup /> : null}
-			<List />
+			<h1>{Num}</h1>
+
+			<button onClick={() => setNum(--Num)}>minus</button>
+			<button onClick={() => setNum(++Num)}>plus</button>
 		</>
 	);
 }
